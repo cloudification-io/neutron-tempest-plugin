@@ -155,6 +155,11 @@
     parent: neutron-tempest-plugin
     vars:
       tempest_test_regex: ^neutron_tempest_plugin\.api
+      # NOTE(imalinovskiy): This test was blacklisted here to be able to test
+      # https://review.opendev.org/709122/ in the CI. It will be removed from
+      # the black list in https://review.opendev.org/711610/
+      tempest_black_regex: "\
+        (^neutron_tempest_plugin.api.test_subnetpools_negative.SubnetPoolsNegativeTestJSON.test_tenant_create_subnetpool_associate_shared_address_scope)"
       devstack_services:
         neutron-log: true
       devstack_local_conf:
